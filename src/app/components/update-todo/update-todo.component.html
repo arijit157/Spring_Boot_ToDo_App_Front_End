@@ -1,0 +1,31 @@
+<div class="alert alert-success text-center" role="alert" *ngIf="isTodoUpdated">
+    Todo updated successfully!
+</div>
+<div class="container">
+    <h1 class="text-center mt-5">Update your ToDo here</h1>
+    <div class="form-container">
+        <form #updateTodoForm="ngForm" (ngSubmit)="updateTodo(updateTodoForm.value)">
+            <div class="mb-3">
+                <label for="description" class="form-label">Description</label>
+                <input type="text" class="form-control" id="description" name="description"
+                    ngModel="{{todo?.description}}" minlength="3" required ngModel #description="ngModel">
+                <p><span *ngIf="description.invalid && description.touched" style="color: red; font-weight: bold; font-size: 12px;">Please enter description</span></p>
+            </div>
+            <div class="mb-3">
+                <label for="targetDate" class="form-label">Target Date</label>
+                <input type="string" class="form-control" id="targetDate" name="targetDate"
+                    ngModel="{{todo?.targetDate}}" required #targetdate="ngModel">
+                <p><span *ngIf="targetdate.invalid && targetdate.touched" style="color: red; font-weight: bold; font-size: 12px;">Please enter a target date</span></p>
+            </div>
+            <div class="mb-3">
+                <label for="done" class="form-label">Done</label>
+                <input type="text" class="form-control" id="done" name="done" ngModel="{{todo?.done}}" ngModel required #done="ngModel">
+                <p><span *ngIf="done.invalid && done.touched" style="color: red; font-weight: bold; font-size: 12px;">Please enter true or false</span></p>
+            </div>
+            <div class="btn-container">
+                <button class="btn btn-success save-btn" [disabled]="updateTodoForm.invalid">Save</button>
+                <a class="btn btn-primary mt-3" routerLink="/todos" style="width: 410px;">See my ToDos</a>
+            </div>
+        </form>
+    </div>
+</div>

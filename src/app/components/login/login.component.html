@@ -1,0 +1,45 @@
+<div class="container" *ngIf="showSignupForm">
+    <h1 class="text-center mt-5">ToDo App - Signup</h1>
+    <div class="signup-container">
+        <form #signupForm="ngForm" (ngSubmit)="handleSignup(signupForm.value)">
+            <div class="mb-3">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" class="form-control" id="name" name="name" ngModel>
+            </div>
+            <div class="mb-3">
+                <label for="signup-email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="signup-email" name="email" ngModel>
+            </div>
+            <div class="mb-3">
+                <label for="signup-password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="signup-password" name="password" ngModel>
+            </div>
+            <button class="btn btn-primary" id="signup-btn">Signup</button>
+            <div id="fake-link">
+                <a style="color: blue; cursor: pointer;" (click)="displayLoginForm()">Already have an account? Login</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="container" *ngIf="showLoginForm">
+    <h1 class="text-center mt-5">ToDo App - Login</h1>
+    <div class="login-container">
+        <form #loginForm="ngForm" (ngSubmit)="handleLogin(loginForm.value)">
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" name="email" ngModel email required #email="ngModel">
+                <p><span *ngIf="email.invalid && email.touched" style="color: red; font-weight: bold; font-size: 12px;">Please enter email</span></p>
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" name="password" ngModel minlength="3" required #password="ngModel">
+                <p><span *ngIf="password.invalid && password.touched" style="color: red; font-weight: bold; font-size: 12px;">Please enter password</span></p>
+            </div>
+            <button class="btn btn-primary" id="login-btn" [disabled]="loginForm.invalid">Login</button>
+            <div id="fake-link2">
+                <a style="color: blue; cursor: pointer;" (click)="displaySignupForm()">Do not have any account? Signup</a>
+            </div>
+        </form>
+    </div>
+</div>

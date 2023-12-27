@@ -1,0 +1,27 @@
+.login-container{
+    width: 280px;
+    margin: auto;
+    margin-top: 40px;
+}
+
+.signup-container{
+    width: 280px;
+    margin: auto;
+    margin-top: 40px;
+}
+
+#login-btn{
+    width: 280px;
+}
+
+#signup-btn{
+    width: 280px;
+}
+
+#fake-link{
+    margin-top: 7px;
+}
+
+#fake-link2{
+    margin-top: 7px;
+}

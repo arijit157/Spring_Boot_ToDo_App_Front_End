@@ -1,0 +1,9 @@
+.btn-container{
+    max-width: 220px;
+    margin: auto;
+}
+
+.btn-container > a{
+    text-align: center;
+    text-decoration: none;
+}
